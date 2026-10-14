@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sandbagging detection dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="viz-root">
+  <header class="top">
+    <h1>Black-box sandbagging detection</h1>
+    <nav>
+      <a href="#table" data-page="table">Detectors × MO sets</a>
+      <a href="#accuracy" data-page="accuracy">Accuracy</a>
+    </nav>
+    <button id="theme" type="button" aria-label="Toggle light or dark theme">Theme</button>
+  </header>
+
+  <main>
+    <section id="page-table" class="page">
+      <p class="lede">
+        Each cell is the AUROC of the set's sandbagging MOs against the set's benign MOs
+        (pooled with equal weight), from simulated audits of each detector's primary k questions.
+        95% CI over question sampling only (not over the choice of MOs). 0.5 is chance; below 0.5
+        the detector points the wrong way.
+      </p>
+      <div class="filters" role="group" aria-label="Filters">
+        <label>Benchmark <select id="f-benchmark"></select></label>
+        <label>MO type <select id="f-type"></select></label>
+        <label class="check"><input type="checkbox" id="f-baselines"> Show baselines</label>
+      </div>
+      <div class="scale" id="scale" aria-hidden="true"></div>
+      <div class="table-wrap"><table id="grid" class="grid"></table></div>
+      <p class="muted">Click a cell (or focus it and press Enter) for its drill-down.</p>
+      <section id="drill" class="drill" hidden aria-live="polite"></section>
+      <div id="sets"></div>
+    </section>
+
+    <section id="page-accuracy" class="page" hidden>
+      <p class="lede">
+        Benchmark accuracy per model and condition, with Wilson 95% intervals. A
+        discovered-incentive scenario is labelled sandbagging only if it passes the gate (see Labels, below);
+        scenarios that fail it are marked did-not-sandbag. Every row is an MO; only those marked
+        “in MO set” have detector results.
+      </p>
+      <div class="filters" role="group" aria-label="Filters">
+        <label>Benchmark <select id="a-benchmark"></select></label>
+        <label>Model type <select id="a-type"></select></label>
+        <label class="check"><input type="checkbox" id="a-mos"> Only MOs in a set</label>
+      </div>
+      <div class="legend" id="a-legend"></div>
+      <p class="muted gate-help" id="a-gate-help"></p>
+      <div class="table-wrap"><table id="acc" class="acc"></table></div>
+    </section>
+  </main>
+  <footer id="footer"></footer>
+  <footer class="credits">Scenario documents: C³ reference implementation (MIT). Log viewer: Inspect AI (MIT). Notices: <a href="NOTICE.md">NOTICE.md</a>.</footer>
+  <div id="tooltip" class="tooltip" role="tooltip" hidden></div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+# Notices
+
+This site is a static dashboard of black-box sandbagging detection results (SPAR FA26). It is
+built from a private repository; this repository contains only the built site.
+
+## Third-party material
+
+- **Scenario documents.** The sandbagging transcripts show the "discovered incentive" scenario
+  documents copied verbatim from the reference implementation of *Cross-Context Consistency for
+  Black-Box Sandbagging Detection* (https://github.com/alignment-research/sandbagging-detection,
+  commit 3d045a9), which is licensed under the MIT License:
+
+  > MIT License
+  >
+  > Copyright (c) 2026
+  >
+  > Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+  > and associated documentation files (the "Software"), to deal in the Software without
+  > restriction, including without limitation the rights to use, copy, modify, merge, publish,
+  > distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the
+  > Software is furnished to do so, subject to the following conditions:
+  >
+  > The above copyright notice and this permission notice shall be included in all copies or
+  > substantial portions of the Software.
+  >
+  > THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+  > BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+  > NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+  > DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  > FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+- **Log viewer.** `transcripts/` is the static log viewer of Inspect AI
+  (https://github.com/UKGovernmentBEIS/inspect_ai, MIT License). It bundles MathJax
+  (Apache License 2.0; the notices are kept in the files) and the fonts Inter and Bricolage
+  Grotesque (SIL Open Font License 1.1).
+- **Questions.** The transcripts contain questions of the MATH dataset (Hendrycks et al.), in the
+  copy `EleutherAI/hendrycks_math`.
+- **Model outputs.** The transcripts contain outputs of GLM-5.3 Flash, Llama 3.3 70B Instruct and
+  Llama 3.1 8B Instruct. Built with Llama.
